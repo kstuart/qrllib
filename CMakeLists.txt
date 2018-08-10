@@ -267,6 +267,7 @@ if (BUILD_PYTHON)
         # Intentionally use a deprecated version to provide support for the raspberry pi
         # Basic pyqrllib - XmssBasic, etc.
         swig_add_module(${SWIG_MODULE_NAME} python ${SWIG_INTERFACE})
+        set(SWIG_MODULE ${SWIG_MODULE_${SWIG_MODULE_NAME}_REAL_NAME})
 
         add_custom_command(TARGET ${SWIG_MODULE}
                 POST_BUILD
@@ -288,9 +289,9 @@ if (BUILD_PYTHON)
                 OUTFILE_DIR ${PROJECT_SOURCE_DIR}/pyqrllib
                 SOURCES ${SWIG_INTERFACE}
                 )
+        set(SWIG_MODULE ${SWIG_MODULE_${SWIG_MODULE_NAME}_REAL_NAME})
     endif()
 
-    set(SWIG_MODULE ${SWIG_MODULE_${SWIG_MODULE_NAME}_REAL_NAME})
     set_target_properties(${SWIG_MODULE} PROPERTIES DEBUG_POSTFIX "_d")
     target_link_libraries(${SWIG_MODULE} ${PYTHON_LIBRARIES} qrllib util PicoSHA2)
     target_include_directories(${SWIG_MODULE} PRIVATE ${PYTHON_INCLUDE_DIRS})
@@ -306,6 +307,7 @@ if (BUILD_PYTHON)
 
     if(${CMAKE_VERSION} VERSION_LESS 3.12.0)
         swig_add_module(${SWIG_MODULE_NAME} python ${SWIG_INTERFACE})
+        set(SWIG_MODULE ${SWIG_MODULE_${SWIG_MODULE_NAME}_REAL_NAME})
 
         add_custom_command(TARGET ${SWIG_MODULE}
                 POST_BUILD
@@ -326,9 +328,9 @@ if (BUILD_PYTHON)
                 OUTFILE_DIR ${PROJECT_SOURCE_DIR}/pyqrllib
                 SOURCES ${SWIG_INTERFACE}
                 )
+        set(SWIG_MODULE ${SWIG_MODULE_${SWIG_MODULE_NAME}_REAL_NAME})
     endif()
 
-    set(SWIG_MODULE ${SWIG_MODULE_${SWIG_MODULE_NAME}_REAL_NAME})
     set_target_properties(${SWIG_MODULE} PROPERTIES DEBUG_POSTFIX "_d")
     target_link_libraries(${SWIG_MODULE} ${PYTHON_LIBRARIES} dilithium_ref dilithium)
     target_include_directories(${SWIG_MODULE} PRIVATE ${PYTHON_INCLUDE_DIRS})
@@ -344,6 +346,7 @@ if (BUILD_PYTHON)
 
     if(${CMAKE_VERSION} VERSION_LESS 3.12.0)
         swig_add_module(${SWIG_MODULE_NAME} python ${SWIG_INTERFACE})
+        set(SWIG_MODULE ${SWIG_MODULE_${SWIG_MODULE_NAME}_REAL_NAME})
 
         add_custom_command(TARGET ${SWIG_MODULE}
                 POST_BUILD
@@ -364,9 +367,9 @@ if (BUILD_PYTHON)
                 OUTFILE_DIR ${PROJECT_SOURCE_DIR}/pyqrllib
                 SOURCES ${SWIG_INTERFACE}
                 )
+        set(SWIG_MODULE ${SWIG_MODULE_${SWIG_MODULE_NAME}_REAL_NAME})
     endif()
 
-    set(SWIG_MODULE ${SWIG_MODULE_${SWIG_MODULE_NAME}_REAL_NAME})
     set_target_properties(${SWIG_MODULE} PROPERTIES DEBUG_POSTFIX "_d")
     target_link_libraries(${SWIG_MODULE} ${PYTHON_LIBRARIES} kyber_ref kyber)
     target_include_directories(${SWIG_MODULE} PRIVATE ${PYTHON_INCLUDE_DIRS})
